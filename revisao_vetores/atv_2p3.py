@@ -1,0 +1,28 @@
+import numpy as np
+
+def vetor_unitario(vetor):
+    
+    tamanho_atual = np.linalg.norm(vetor)
+    
+    # Proteção contra o vetor de zeros
+    if tamanho_atual == 0:
+        print("Erro: Vetor de zeros não possui direção. Impossível normalizar.")
+        return vetor
+        
+    # Normalização do vetor
+    vetor_unitario = vetor / tamanho_atual
+    return vetor_unitario
+
+
+"""
+Testando a função vetor_unitario
+"""
+
+vetor = np.array([3, -5, 7, 1])
+vetor_nulo = np.array([0, 0, 0, 0])
+
+print("Calculando o vetor unitário de um vetor normal:")
+print(vetor_unitario(vetor), "\n")
+
+print("Calculando o vetor unitário de um vetor nulo:")
+print(vetor_unitario(vetor_nulo))
